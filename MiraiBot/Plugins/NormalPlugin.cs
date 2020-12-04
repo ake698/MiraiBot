@@ -1,0 +1,15 @@
+﻿using Mirai_CSharp;
+using Mirai_CSharp.Models;
+using Mirai_CSharp.Plugin.Interfaces;
+using System.Threading.Tasks;
+
+namespace MiraiBot.Plugins
+{
+    public partial class NormalPlugin : IFriendMessage, // 你想处理什么事件就实现什么事件对应的接口
+                                 IGroupMessage,
+                                 INewFriendApply,
+                                 IGroupApply,
+                                 IDisconnected
+    {
+    }
+}
