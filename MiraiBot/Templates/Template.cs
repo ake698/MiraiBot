@@ -20,7 +20,9 @@ namespace MiraiBot.Templates
 
         public static string RenderPersonReply()
         {
-            return "你好！";
+            return "你好,请输入看+关键字(看功夫)进行影视资源搜索！" +
+                "\n 源网站为 http://www.qianping.cc" +
+                "\n 请使用本地浏览器打开网页。";
         }
     }
 }

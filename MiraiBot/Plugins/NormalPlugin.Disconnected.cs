@@ -18,7 +18,7 @@ namespace MiraiBot.Plugins
             {
                 try
                 {
-                    await session.ConnectAsync(options, 0); // 连到成功为止, QQ号自填, 你也可以另行处理重连的 behaviour
+                    await session.ConnectAsync(options, Setting.QQ); // 连到成功为止, QQ号自填, 你也可以另行处理重连的 behaviour
                     return true;
                 }
                 catch (Exception)

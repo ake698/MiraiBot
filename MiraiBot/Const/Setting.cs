@@ -12,5 +12,7 @@ namespace MiraiBot.Const
 
         public const long QQ = 1471259552;
         public const long GroupId = 424101920;
+
+        public const string TaskSaveDir = "/Datas/task";
     }
 }

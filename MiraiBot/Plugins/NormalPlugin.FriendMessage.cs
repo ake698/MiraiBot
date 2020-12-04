@@ -27,11 +27,12 @@ namespace MiraiBot.Plugins
             // 好友昵称 /  / 好友备注 /  / 好友QQ号 /
             var msg = e.Chain.GetPlain();
             if (!msg.StartsWith("看"))
-                return null;
+                return new PlainMessage(Template.RenderPersonReply());
             var key = msg.Substring(1);
             var model = await ResourceAcquisition.SearchResourceFromQP(key);
             msg = Template.RenderSearchResponse(key, model);
             return new PlainMessage(msg);
         }
+
     }
 }

@@ -37,7 +37,7 @@ namespace MiraiBot.Plugins
 
             var msg = e.Chain.GetPlain();
             if (!msg.StartsWith("看"))
-                return null;
+                return new PlainMessage(Template.RenderPersonReply());
             var key = msg.Substring(1);
             var model = await ResourceAcquisition.SearchResourceFromQP(key);
             msg = Template.RenderSearchResponse(key, model);
