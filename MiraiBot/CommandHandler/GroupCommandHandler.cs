@@ -1,6 +1,6 @@
 ﻿using Mirai_CSharp.Models;
 using MiraiBot.Extensions;
-using System;
+using MiraiBot.Templates;
 using System.Threading.Tasks;
 
 namespace MiraiBot.CommandHandler
@@ -10,9 +10,9 @@ namespace MiraiBot.CommandHandler
         public override Task<PlainMessage> PersonalizedOperation(IGroupMessageEventArgs e)
         {
             if (e.Chain.HasAtMe())
-                return Task.FromResult(new PlainMessage("你好呀！"));
+                return Task.FromResult(new PlainMessage(Template.RenderBaseReply()));
 
-            return null;
+            return Task.FromResult(new PlainMessage(Template.RenderEmpty()));
         }
     }
 }

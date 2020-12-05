@@ -24,5 +24,10 @@ namespace MiraiBot.Templates
                 "\n 源网站为:\n http://www.qianping.cc" +
                 "\n 请使用本地浏览器打开网页。";
         }
+
+        public static string RenderEmpty()
+        {
+            return string.Empty;
+        }
     }
 }

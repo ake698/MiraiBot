@@ -20,7 +20,7 @@ namespace MiraiBot.Plugins
         public async Task<bool> GroupMessage(MiraiHttpSession session, IGroupMessageEventArgs e) // 法2: 使用 params IMessageBase[]
         {
             var replyMsg = await GroupMessageHandler(e);
-            if (replyMsg == null)
+            if (replyMsg == null || replyMsg.Message == string.Empty)
                 return true;
             await session.SendGroupMessageAsync(e.Sender.Group.Id, new AtMessage(e.Sender.Id), replyMsg/*, plain2, /* etc... */); // 向消息来源群异步发送由以上chain表示的消息
             return false; // 不阻断消息传递。如需阻断请返回true
