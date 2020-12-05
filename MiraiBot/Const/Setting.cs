@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MiraiBot.Const
+﻿namespace MiraiBot.Const
 {
     public class Setting
     {
@@ -13,6 +9,8 @@ namespace MiraiBot.Const
         public const long QQ = 1471259552;
         public const long GroupId = 424101920;
 
-        public const string TaskSaveDir = "/Datas/task";
+        public const string MQUserName = "qp";
+        public const string MQPassword = "redhat5431";
+        public const string MQChannel = "search";
     }
 }

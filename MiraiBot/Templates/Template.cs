@@ -18,10 +18,10 @@ namespace MiraiBot.Templates
             return $"您好，您搜索的 {key} 不存在，我们已经进行记录，会尽快添加此资源！";
         }
 
-        public static string RenderPersonReply()
+        public static string RenderBaseReply()
         {
             return "你好,请输入看+关键字(看功夫)进行影视资源搜索！" +
-                "\n 源网站为 http://www.qianping.cc" +
+                "\n 源网站为:\n http://www.qianping.cc" +
                 "\n 请使用本地浏览器打开网页。";
         }
     }

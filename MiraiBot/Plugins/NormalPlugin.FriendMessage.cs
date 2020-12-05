@@ -1,6 +1,7 @@
 ﻿using Mirai_CSharp;
 using Mirai_CSharp.Extensions;
 using Mirai_CSharp.Models;
+using MiraiBot.CommandHandler;
 using MiraiBot.Resources;
 using MiraiBot.Templates;
 using MiraiBot.Utils;
@@ -11,6 +12,8 @@ namespace MiraiBot.Plugins
 {
     public partial class NormalPlugin
     {
+        private FriendCommandHandler _friendHandler = new FriendCommandHandler();
+
         public async Task<bool> FriendMessage(MiraiHttpSession session, IFriendMessageEventArgs e) // 法1: 使用 IMessageBase[]
         {
             var replyMsg = await MessageHandler(e);
@@ -25,13 +28,8 @@ namespace MiraiBot.Plugins
         {
             $"收到了来自{e.Sender.Name}({e.Sender.Remark})[{e.Sender.Id}]的私聊消息:{string.Join(null, (IEnumerable<IMessageBase>)e.Chain)}".LogInfo();
             // 好友昵称 /  / 好友备注 /  / 好友QQ号 /
-            var msg = e.Chain.GetPlain();
-            if (!msg.StartsWith("看"))
-                return new PlainMessage(Template.RenderPersonReply());
-            var key = msg.Substring(1);
-            var model = await ResourceAcquisition.SearchResourceFromQP(key);
-            msg = Template.RenderSearchResponse(key, model);
-            return new PlainMessage(msg);
+
+            return await _friendHandler.CommandHandler(e);
         }
 
     }
