@@ -41,6 +41,7 @@ namespace MiraiBot.CommandHandler
             var key = command.Substring(1);
             var model = await ResourceAcquisition.SearchResourceFromQP(key);
             var reply = Template.RenderSearchResponse(key, model);
+            reply.LogInfo();
             if (!model.Datas.Any())
             {
                 MQUtil.PublishMQ(key);
