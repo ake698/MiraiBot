@@ -15,7 +15,7 @@ namespace MiraiBot.Templates
                 $"您好，您搜索的 {key} 共有 {model.Count} 条数据，本次展示 {model.Datas.Count} 条:\n{data_info}";
             }
 
-            return $"您好，您搜索的 {key} 不存在，我们已经进行记录，会尽快添加此资源！";
+            return $"您好，您搜索的 {key} 不存在，请10秒之后再试，如果仍然没有我们会进行记录，会尽快添加此资源！";
         }
 
         public static string RenderBaseReply()
