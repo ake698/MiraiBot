@@ -25,6 +25,12 @@ namespace MiraiBot.Templates
                 "\n 请使用本地浏览器打开网页。";
         }
 
+
+        public static string RenderUpdateActionResponse(string key)
+        {
+            return $"您好，更新 {key} 任务提交成功！";
+        }
+
         public static string RenderEmpty()
         {
             return string.Empty;

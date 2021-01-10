@@ -9,14 +9,13 @@ using System.Threading.Tasks;
 
 namespace MiraiBot.CommandHandler
 {
-    public abstract class BaseCommandHandler<T>  where T : ICommonMessageEventArgs 
+    public abstract class BaseCommandHandler<T> where T : ICommonMessageEventArgs
     {
         public virtual async Task<PlainMessage> CommandHandler(T e)
         {
             var command = e.Chain.GetPlain();
             if (command.StartsWith("看"))
                 return await ResouceCommandHandler(command);
-
             try
             {
                 return await PersonalizedOperation(e);
@@ -26,7 +25,7 @@ namespace MiraiBot.CommandHandler
                 return BaseReply();
             }
 
-            
+
         }
 
         public abstract Task<PlainMessage> PersonalizedOperation(T e);
@@ -36,6 +35,11 @@ namespace MiraiBot.CommandHandler
             return new PlainMessage(Template.RenderBaseReply());
         }
 
+        /// <summary>
+        /// 查找资源，无资源则推送搜索命令
+        /// </summary>
+        /// <param name="command"></param>
+        /// <returns></returns>
         public async Task<PlainMessage> ResouceCommandHandler(string command)
         {
             var key = command.Substring(1);
@@ -47,6 +51,19 @@ namespace MiraiBot.CommandHandler
                 MQUtil.PublishMQ(key);
             }
             return new PlainMessage(reply);
+        }
+
+        /// <summary>
+        /// 更新操作，直接推送资源名称至MQ
+        /// </summary>
+        /// <param name="command">原命令</param>
+        /// <returns>更新操作成功魔板</returns>
+        public Task<PlainMessage> UpdateCommandHandler(string command)
+        {
+            var key = command.Substring(2);
+            var reply = Template.RenderUpdateActionResponse(key);
+            MQUtil.PublishMQ(key);
+            return Task.FromResult(new PlainMessage(reply));
         }
     }
 }

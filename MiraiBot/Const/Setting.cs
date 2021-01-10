@@ -1,4 +1,6 @@
-﻿namespace MiraiBot.Const
+﻿using System.Collections.Generic;
+
+namespace MiraiBot.Const
 {
     public class Setting
     {
@@ -12,5 +14,10 @@
         public const string MQUserName = "qp";
         public const string MQPassword = "redhat5431";
         public const string MQChannel = "search";
+
+        public static List<string> UpdateActionPermission = new List<string>{
+            "1137230948","376494614",
+            "1321812866","1950193476"
+        };
     }
 }

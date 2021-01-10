@@ -29,6 +29,7 @@ namespace MiraiBot.Plugins
 
         private async Task<PlainMessage> GroupMessageHandler(IGroupMessageEventArgs e)
         {
+            // 只允许特定群
             if (e.Sender.Group.Id != Setting.GroupId)
                 return null;
 
