@@ -16,7 +16,7 @@ namespace MiraiBot.CommandHandler
             // 添加直接更新操作 为管理员或者指定用户可操作
             var command = e.Chain.GetPlain();
             if (command.StartsWith("更新") &&
-                (e.Sender.Permission != GroupPermission.Member) || Setting.UpdateActionPermission.Contains(e.Sender.Id.ToString()))
+                (e.Sender.Permission != GroupPermission.Member || Setting.UpdateActionPermission.Contains(e.Sender.Id.ToString())))
                 return UpdateCommandHandler(command);
             if (e.Chain.HasAtMe())
                 return Task.FromResult(new PlainMessage(Template.RenderBaseReply()));
