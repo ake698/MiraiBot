@@ -14,7 +14,7 @@ namespace MiraiBot.CommandHandler
         public virtual async Task<PlainMessage> CommandHandler(T e)
         {
             var command = e.Chain.GetPlain();
-            if (command.StartsWith("看"))
+            if (command.StartsWith("看") || command.StartsWith("搜"))
                 return await ResouceCommandHandler(command);
             try
             {
