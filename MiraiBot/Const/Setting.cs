@@ -9,7 +9,12 @@ namespace MiraiBot.Const
         public const string AuthKey = "redhat5431";
 
         public const long QQ = 1471259552;
-        public const long GroupId = 424101920;
+        //public const long GroupId = 424101920;
+        public static List<long> GroupIds = new List<long>
+        {
+            424101920,
+            518603906
+        }
 
         public const string MQUserName = "qp";
         public const string MQPassword = "redhat5431";
