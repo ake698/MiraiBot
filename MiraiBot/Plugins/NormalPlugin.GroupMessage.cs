@@ -39,8 +39,8 @@ namespace MiraiBot.Plugins
             // 只允许特定群
             //if (e.Sender.Group.Id != Setting.GroupId)
             //    return null;
-            if(!Setting.GroupIds.Contains(e.Sender.Group.Id))
-                return null
+            if (!Setting.GroupIds.Contains(e.Sender.Group.Id))
+                return null;
 
             $"收到了来自{e.Sender.Name}[{e.Sender.Id}]{{{e.Sender.Permission}}}的群消息:{string.Join(null, (IEnumerable<IMessageBase>)e.Chain)}".LogInfo();
             //     / 发送者群名片 /  / 发送者QQ号 /   /   发送者在群内权限

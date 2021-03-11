@@ -14,7 +14,7 @@ namespace MiraiBot.Const
         {
             424101920,
             518603906
-        }
+        };
 
         public const string MQUserName = "qp";
         public const string MQPassword = "redhat5431";
